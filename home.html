@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vendor Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="d-flex" id="wrapper">
+        <!-- Side Bar  -->
+        <div class="bg-white shadow rounded-end" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center" style="color: blueviolet;"><b>LOGO</b></div>
+            <div class="list-group list-group-flush my-3">
+                
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text" >
+                    <i class="bi bi-grid fs-5 d-block text-center"></i>
+                </a>
+                
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text" >
+                    <i class="bi bi-people fs-5 d-block text-center"></i>
+                </a>
+            
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text" >
+                    <i class="bi bi-truck fs-5 d-block text-center"></i>
+                </a>
+
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text" >
+                    <i class="bi bi-cart2 fs-5 d-block text-center"></i>
+                </a>
+
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text" >
+                    <i class="bi bi-list-task fs-5 d-block text-center"></i>
+                </a>
+
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text" >
+                    <i class="bi bi-person fs-5 d-block text-center"></i>
+                </a>
+                
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text" >
+                    <i class="bi bi-stack fs-5 d-block text-center"></i>
+                </a>
+                
+            </div>
+            <div class="down">
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text" >
+                    <i class="bi bi-sliders2 fs-5 d-block text-center"></i>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text" >
+                    <i class="bi bi-exclamation-octagon fs-5 d-block text-center"></i>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text" >
+                    <i class="bi bi-box-arrow-right fs-5 d-block text-center"></i>
+                </a>
+            </div>
+        </div>
+    
+        <!-- Navigation Bar  -->
+        <div id="page-content-wrapper">
+            
+            <nav class="navbar navbar-expand-lg shadow-sm rounded mb-4">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center">
+                        <b>Vendor</b>
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="#" ><i class="bi bi-bell"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="#"><i class="bi bi-chat-left"></i> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="#"><i class="bi bi-gear"></i></a>
+                            </li>
+                            
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link fw d-flex align-items-center gap-2" style="font-size: 15px;" href="#">
+                                  Admin  
+                                  <img src="src/image1.jpg" alt="Profile" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
+                                </a>
+                              </li>
+                              
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            
+            <div class="container-fluid px-4">
+                <div class="row g-3 mb-4">
+                    <div class="col-12 fs-3 text-center">
+                        <b>Home / Vendor</b>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-12 text-end mb-3">
+                        <button class="btn btn-primary"><i class="bi bi-plus-lg"></i> Add New Vendor</button>
+                    </div>
+
+                    <div class="row mb-4 align-items-center gx-5">
+                     
+                        <div class="col-md-6 col-lg-3 mb-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search"/>
+                                <button class="btn btn-outline" type="button" style="border-left: 0; background-color: white;">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    
+                        
+                        <div class="col-md-6 col-lg-3 mb-3 d-flex align-items-center gap-4 ps-lg-4">
+                            <label for="filterSelect" class="form-label mb-0 fw-bold">Filter</label>
+                            <select class="form-select" id="filterSelect">
+                                <option selected disabled>Select</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-center gap-2 mb-3">
+                            <div style="background-color: white;">
+                                <button class="btn btn-white border border-dark px-4 py-2">Export Excel</button>
+                                <button class="btn btn-white border border-dark px-4 py-2">Export CSV</button>
+                                <button class="btn btn-white border border-dark px-4 py-2">Export PDF</button>
+                                <button class="btn btn-white border border-dark px-4 py-2">Print</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover bg-white rounded shadow-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Vendors Name</th>
+                                        <th>Mobile No</th>
+                                        <th>Email ID</th>
+                                        <th>Address</th>
+                                        <th>To be paid</th>
+                                        <th>Loyalty Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <img src="src/image2.jpg" class="rounded-circle me-2" style="width: 40px; height: 40px;" alt="Profile" />
+                                            Amith Dias #0001
+                                        </td>
+                                        <td>0712345675</td>
+                                        <td>amaldias@gmail.com</td>
+                                        <td>No. 42, Gampaha</td>
+                                        <td>Rs. 80000/=</td>
+                                        <td>Active</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil"></i></button>
+                                            <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="src/image3.jpg" class="rounded-circle me-2" style="width: 40px; height: 40px;" alt="Profile" />
+                                            Amith Dias #0001
+                                        </td>
+                                        <td>0712345675</td>
+                                        <td>amaldias@gmail.com</td>
+                                        <td>No. 42, Gampaha</td>
+                                        <td>Rs. 80000/=</td>
+                                        <td>Active</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil"></i></button>
+                                            <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="src/image4.jpg" class="rounded-circle me-2" style="width: 40px; height: 40px;" alt="Profile" />
+                                            Amith Dias #0001
+                                        </td>
+                                        <td>0712345675</td>
+                                        <td>amaldias@gmail.com</td>
+                                        <td>No. 42, Gampaha</td>
+                                        <td>Rs. 80000/=</td>
+                                        <td>Active</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil"></i></button>
+                                            <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="src/image5.jpg" class="rounded-circle me-2" style="width: 40px; height: 40px;" alt="Profile" />
+                                            Amith Dias #0001
+                                        </td>
+                                        <td>0712345675</td>
+                                        <td>amaldias@gmail.com</td>
+                                        <td>No. 42, Gampaha</td>
+                                        <td>Rs. 80000/=</td>
+                                        <td>Active</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil"></i></button>
+                                            <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="src/image6.jpg" class="rounded-circle me-2" style="width: 40px; height: 40px;" alt="Profile" />
+                                            Amith Dias #0001
+                                        </td>
+                                        <td>0712345675</td>
+                                        <td>amaldias@gmail.com</td>
+                                        <td>No. 42, Gampaha</td>
+                                        <td>Rs. 80000/=</td>
+                                        <td>Active</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil"></i></button>
+                                            <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <nav aria-label="Dot pagination">
+                            <ul class="pagination justify-content-center dot-pagination">
+                                <li class="page-item"><a class="page-link" href="#"></a></li>
+                                <li class="page-item active"><a class="page-link" href="#"></a></li>
+                                <li class="page-item"><a class="page-link" href="#"></a></li>
+                                <li class="page-item"><a class="page-link" href="#"></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById("menu-toggle").onclick = function () {
+        document.getElementById("wrapper").classList.toggle("toggled");
+    };
+</script>
+
+</body>
+</html>
