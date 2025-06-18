@@ -1,5 +1,3 @@
-// script.js
-
 let vendors = JSON.parse(localStorage.getItem("vendors")) || [];
 
 function renderVendors() {
@@ -9,7 +7,10 @@ function renderVendors() {
   vendors.forEach((vendor, index) => {
     const row = `
       <tr>
-        <td><img src="src/image${index + 2}.jpg" class="rounded-circle me-2" style="width: 40px; height: 40px;" alt="Profile" />${vendor.name}</td>
+        <td>
+          <img src="${vendor.image}" class="rounded-circle me-2" style="width: 40px; height: 40px;" alt="Profile" />
+          ${vendor.name}
+        </td>
         <td>${vendor.mobile}</td>
         <td>${vendor.email}</td>
         <td>${vendor.address}</td>
@@ -27,28 +28,45 @@ function renderVendors() {
 document.getElementById("vendorForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const newVendor = {
-    name: document.getElementById("vendorName").value,
-    mobile: document.getElementById("mobile").value,
-    email: document.getElementById("email").value,
-    address: document.getElementById("address").value,
-    toBePaid: document.getElementById("toBePaid").value,
-    loyalty: document.getElementById("loyalty").value,
-  };
+  const fileInput = document.getElementById("vendorImage");
+  const file = fileInput.files[0];
 
-  // Simple validation more try 
-  if (!newVendor.name || !newVendor.mobile || !newVendor.email) {
-    alert("Please fill all fields.");
+  if (!file) {
+    alert("Please select an image!");
     return;
   }
 
-  vendors.push(newVendor);
-  localStorage.setItem("vendors", JSON.stringify(vendors));
-  renderVendors();
+  const reader = new FileReader();
 
-  document.getElementById("vendorForm").reset();
-  const modal = bootstrap.Modal.getInstance(document.getElementById("addVendorModal"));
-  modal.hide();
+  reader.onloadend = function () {
+    const base64Image = reader.result;
+
+    const newVendor = {
+      name: document.getElementById("vendorName").value,
+      mobile: document.getElementById("mobile").value,
+      email: document.getElementById("email").value,
+      address: document.getElementById("address").value,
+      toBePaid: document.getElementById("toBePaid").value,
+      loyalty: document.getElementById("loyalty").value,
+      image: base64Image
+    };
+
+    if (!newVendor.name || !newVendor.mobile || !newVendor.email) {
+      alert("Please fill all required fields.");
+      return;
+    }
+
+    vendors.push(newVendor);
+    localStorage.setItem("vendors", JSON.stringify(vendors));
+
+    renderVendors();
+
+    document.getElementById("vendorForm").reset();
+    const modal = bootstrap.Modal.getInstance(document.getElementById("addVendorModal"));
+    modal.hide();
+  };
+
+  reader.readAsDataURL(file); 
 });
 
 function deleteVendor(index) {
