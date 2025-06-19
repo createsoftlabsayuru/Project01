@@ -1,5 +1,6 @@
 let vendors = JSON.parse(localStorage.getItem("vendors")) || [];
 
+//item count for one page
 const itemsPerPage = 5;
 let currentPage = 1;
 
@@ -36,27 +37,29 @@ function renderVendors() {
 }
 
 function renderPagination() {
-  const pagination = document.getElementById("paginationContainer");
+  const pagination = document.getElementById("pagination");
   pagination.innerHTML = "";
 
   const totalPages = Math.ceil(vendors.length / itemsPerPage);
 
-  const prevDot = document.createElement("li");
-  prevDot.className = `page-item ${currentPage === 1 ? "disabled" : ""}`;
-  prevDot.innerHTML = `<a class="page-link" href="#" title="Previous">◀</a>`;
-  prevDot.addEventListener("click", (e) => {
+  // « Prev Arrow
+  const prevBtn = document.createElement("li");
+  prevBtn.className = `page-item prev-next ${currentPage === 1 ? "disabled" : ""}`;
+  prevBtn.innerHTML = `<a class="page-link" href="#" title="Previous">&laquo;</a>`;
+  prevBtn.addEventListener("click", (e) => {
     e.preventDefault();
     if (currentPage > 1) {
       currentPage--;
       renderVendors();
     }
   });
-  pagination.appendChild(prevDot);
+  pagination.appendChild(prevBtn);
 
+  // Dots
   for (let i = 1; i <= totalPages; i++) {
     const li = document.createElement("li");
     li.className = `page-item ${i === currentPage ? "active" : ""}`;
-    li.innerHTML = `<a class="page-link" href="#">•</a>`;
+    li.innerHTML = `<a class="page-link" href="#"></a>`;
     li.addEventListener("click", (e) => {
       e.preventDefault();
       currentPage = i;
@@ -65,18 +68,21 @@ function renderPagination() {
     pagination.appendChild(li);
   }
 
-  const nextDot = document.createElement("li");
-  nextDot.className = `page-item ${currentPage === totalPages ? "disabled" : ""}`;
-  nextDot.innerHTML = `<a class="page-link" href="#" title="Next">▶</a>`;
-  nextDot.addEventListener("click", (e) => {
+  // » Next Arrow
+  const nextBtn = document.createElement("li");
+  nextBtn.className = `page-item prev-next ${currentPage === totalPages ? "disabled" : ""}`;
+  nextBtn.innerHTML = `<a class="page-link" href="#" title="Next">&raquo;</a>`;
+  nextBtn.addEventListener("click", (e) => {
     e.preventDefault();
     if (currentPage < totalPages) {
       currentPage++;
       renderVendors();
     }
   });
-  pagination.appendChild(nextDot);
+  pagination.appendChild(nextBtn);
 }
+
+
 
 document.getElementById("vendorForm").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -113,7 +119,7 @@ document.getElementById("vendorForm").addEventListener("submit", function (e) {
     document.getElementById("vendorForm").reset();
     document.getElementById("editIndex").value = "";
 
-    // ✅ Close Modal after submit
+    
     const modalElement = document.getElementById("addVendorModal");
     const modalInstance = bootstrap.Modal.getInstance(modalElement);
     if (modalInstance) {

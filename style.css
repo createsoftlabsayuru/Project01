@@ -127,19 +127,52 @@ body {
     background-color: #ca15bbab;
 }
 
-/* Dot style pagination */
-.dot-pagination .page-link {
+/* Center everything in line */
+.dot-pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+/* Dot styles */
+.dot-pagination .page-item .page-link {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  padding: 0;
   background-color: #ccc;
   border: none;
+  padding: 0;
+  transition: background-color 0.3s ease;
 }
 
 .dot-pagination .page-item.active .page-link {
-  background-color: #6a0dad; 
+  background-color: #6a0dad;
 }
+
+/* Arrow buttons */
+.dot-pagination .page-item.prev-next .page-link {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 30px;
+  padding: 0;
+  background-color: transparent;
+  color: #6a0dad;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-indent: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dot-pagination .page-item.prev-next .page-link:hover {
+  background-color: #6a0dad;
+  color: white;
+}
+
+
 
 
 /* Tablet View */
