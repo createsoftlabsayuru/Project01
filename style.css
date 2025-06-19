@@ -127,6 +127,19 @@ body {
     background-color: #ca15bbab;
 }
 
+/* Dot style pagination */
+.dot-pagination .page-link {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  padding: 0;
+  background-color: #ccc;
+  border: none;
+}
+
+.dot-pagination .page-item.active .page-link {
+  background-color: #6a0dad; 
+}
 
 
 /* Tablet View */
