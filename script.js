@@ -4,6 +4,7 @@ let vendors = JSON.parse(localStorage.getItem("vendors")) || [];
 const itemsPerPage = 5;
 let currentPage = 1;
 
+// render vendorss
 function renderVendors() {
   const tableBody = document.querySelector("tbody");
   tableBody.innerHTML = "";
@@ -36,6 +37,7 @@ function renderVendors() {
   renderPagination();
 }
 
+// pagination setup methord
 function renderPagination() {
   const pagination = document.getElementById("pagination");
   pagination.innerHTML = "";
@@ -82,8 +84,7 @@ function renderPagination() {
   pagination.appendChild(nextBtn);
 }
 
-
-
+// add new Vendor
 document.getElementById("vendorForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -139,6 +140,7 @@ document.getElementById("vendorForm").addEventListener("submit", function (e) {
   }
 });
 
+// convert model form text and cler user ennater data
 document.getElementById("addVendorBtn").addEventListener("click", function () {
   document.getElementById("vendorForm").reset();
   document.getElementById("editIndex").value = "";
