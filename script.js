@@ -140,56 +140,5 @@ document.getElementById("addVendorBtn").addEventListener("click", function () {
   document.getElementById("vendorSubmitBtn").textContent = "Add Vendor";
 });
 
-// delete option
-function deleteVendor(index) {
-  if (confirm("Are you sure you want to delete this vendor?")) {
-    vendors.splice(index, 1);
-    localStorage.setItem("vendors", JSON.stringify(vendors));
-    renderVendors();
-  }
-}
-
-// edit text
-function editVendor(index) {
-  const vendor = vendors[index];
-  document.getElementById("vendorName").value = vendor.name;
-  document.getElementById("mobile").value = vendor.mobile;
-  document.getElementById("email").value = vendor.email;
-  document.getElementById("address").value = vendor.address;
-  document.getElementById("toBePaid").value = vendor.toBePaid;
-  document.getElementById("loyalty").value = vendor.loyalty;
-  document.getElementById("editIndex").value = index;
-
-  document.getElementById("addVendorModalLabel").textContent = "Edit Vendor";
-  document.getElementById("vendorSubmitBtn").textContent = "Update Vendor";
-
-  const modal = new bootstrap.Modal(document.getElementById("addVendorModal"));
-  modal.show();
-}
-
-//search option
-document.getElementById("searchInput").addEventListener("input", function () {
-  const searchTerm = this.value.toLowerCase().trim();
-  const tableRows = document.querySelectorAll("tbody tr");
-
-  tableRows.forEach((row) => {
-    const cells = row.querySelectorAll("td");
-    let matchFound = false;
-
-    cells.forEach((cell) => {
-      const text = cell.textContent.toLowerCase();
-      if (text.includes(searchTerm)) {
-        matchFound = true;
-      }
-    });
-
-    if (matchFound) {
-      row.style.display = "";
-    } else {
-      row.style.display = "none";
-    }
-  });
-});
-
 
 window.onload = renderVendors;
