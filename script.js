@@ -93,40 +93,48 @@ document.getElementById("vendorForm").addEventListener("submit", function (e) {
   const file = fileInput.files[0];
 
   const handleFormSubmission = (base64Image) => {
-    const newVendor = {
-      name: document.getElementById("vendorName").value,
-      mobile: document.getElementById("mobile").value,
-      email: document.getElementById("email").value,
-      address: document.getElementById("address").value,
-      toBePaid: document.getElementById("toBePaid").value,
-      loyalty: document.getElementById("loyalty").value,
-      image: base64Image
-    };
-
-    if (!newVendor.name || !newVendor.mobile || !newVendor.email) {
-      alert("Please fill all required fields.");
-      return;
-    }
-
-    if (editIndex !== "") {
-      vendors[editIndex] = newVendor;
-    } else {
-      vendors.push(newVendor);
-    }
-
-    localStorage.setItem("vendors", JSON.stringify(vendors));
-    renderVendors();
-
-    document.getElementById("vendorForm").reset();
-    document.getElementById("editIndex").value = "";
-
-    
-    const modalElement = document.getElementById("addVendorModal");
-    const modalInstance = bootstrap.Modal.getInstance(modalElement);
-    if (modalInstance) {
-      modalInstance.hide();
-    }
+  const newVendor = {
+    name: document.getElementById("vendorName").value.trim(),
+    mobile: document.getElementById("mobile").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    address: document.getElementById("address").value.trim(),
+    toBePaid: document.getElementById("toBePaid").value.trim(),
+    loyalty: document.getElementById("loyalty").value.trim(),
+    image: base64Image
   };
+
+  // Basic required field check
+  if (!newVendor.name || !newVendor.mobile || !newVendor.email) {
+    alert("Please fill all required fields.");
+    return;
+  }
+
+  // Mobile number validation (digits only and length check)
+  const mobileRegex = /^\d{10}$/; // Adjust 10 to your needed length
+  if (!mobileRegex.test(newVendor.mobile)) {
+    alert("Please enter a valid 10-digit mobile number.");
+    return;
+  }
+
+  if (editIndex !== "") {
+    vendors[editIndex] = newVendor;
+  } else {
+    vendors.push(newVendor);
+  }
+
+  localStorage.setItem("vendors", JSON.stringify(vendors));
+  renderVendors();
+
+  document.getElementById("vendorForm").reset();
+  document.getElementById("editIndex").value = "";
+
+  const modalElement = document.getElementById("addVendorModal");
+  const modalInstance = bootstrap.Modal.getInstance(modalElement);
+  if (modalInstance) {
+    modalInstance.hide();
+  }
+};
+
 
   if (file) {
     const reader = new FileReader();

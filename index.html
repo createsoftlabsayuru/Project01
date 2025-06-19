@@ -198,7 +198,9 @@
         </div>
 
           <input type="text" id="vendorName" class="form-control mb-2" placeholder="Vendor Name" required />
-          <input type="text" id="mobile" class="form-control mb-2" placeholder="Mobile No" required />
+          <input type="tel" id="mobile" class="form-control mb-2" placeholder="Mobile No" pattern="=^\d{10}$"
+          title="Please enter a valid 10digital mobile number" required />
+          
           <input type="email" id="email" class="form-control mb-2" placeholder="Email" required />
           <input type="text" id="address" class="form-control mb-2" placeholder="Address" required />
           <input type="number" id="toBePaid" class="form-control mb-2" placeholder="To be paid" required />
