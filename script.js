@@ -140,5 +140,32 @@ document.getElementById("addVendorBtn").addEventListener("click", function () {
   document.getElementById("vendorSubmitBtn").textContent = "Add Vendor";
 });
 
+// delete option
+function deleteVendor(index) {
+  if (confirm("Are you sure you want to delete this vendor?")) {
+    vendors.splice(index, 1);
+    localStorage.setItem("vendors", JSON.stringify(vendors));
+    renderVendors();
+  }
+}
+
+// edit text
+function editVendor(index) {
+  const vendor = vendors[index];
+  document.getElementById("vendorName").value = vendor.name;
+  document.getElementById("mobile").value = vendor.mobile;
+  document.getElementById("email").value = vendor.email;
+  document.getElementById("address").value = vendor.address;
+  document.getElementById("toBePaid").value = vendor.toBePaid;
+  document.getElementById("loyalty").value = vendor.loyalty;
+  document.getElementById("editIndex").value = index;
+
+  document.getElementById("addVendorModalLabel").textContent = "Edit Vendor";
+  document.getElementById("vendorSubmitBtn").textContent = "Update Vendor";
+
+  const modal = new bootstrap.Modal(document.getElementById("addVendorModal"));
+  modal.show();
+}
+
 
 window.onload = renderVendors;
