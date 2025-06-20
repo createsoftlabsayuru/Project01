@@ -104,7 +104,7 @@
                 </div>
 
                 <div class="row mb-4">
-                    <div class="col-12 text-end mb-3" >
+                    <div class="addvendor text-end mb-3" >
                         <button class="btn btn-primary" id="addVendorBtn" data-bs-toggle="modal" data-bs-target="#addVendorModal"><i class="bi bi-plus-lg"></i> Add New Vendor</button>
                     </div>
 
@@ -112,11 +112,13 @@
                      
                         <div class="col-md-6 col-lg-3 mb-3">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search" id="searchInput"/>
-                                <button class="btn btn-outline" type="button" style="border-left: 0; background-color: white;">
-                                    <i class="bi bi-search"></i>
-                                </button>
+                                <input type="text" class="form-control" placeholder="Search" id="searchInput">
+                                    <span class="input-group-text bg-white">
+                                        <i class="bi bi-search"></i>
+                                    </span>
+                                </input>    
                             </div>
+
                         </div>
                     
                         
@@ -134,12 +136,12 @@
 
                 <div class="row mb-4">
                     <div class="col-12">
-                        <div class="d-flex justify-content-center gap-2 mb-3">
-                            <div style="background-color: white;">
-                                <button class="btn btn-white border border-dark px-4 py-2" onclick="exportToExcel()">Export Excel</button>
-                                <button class="btn btn-white border border-dark px-4 py-2" onclick="exportToCSV()">Export CSV</button>
-                                <button class="btn btn-white border border-dark px-4 py-2" onclick="exportToPDF()">Export PDF</button>
-                                <button class="btn btn-white border border-dark px-4 py-2" onclick="printTable()">Print</button>
+                        <div class="gap-2 mb-3">
+                            <div class="exportButton">
+                                <button class="btn btn-white border border-dark px-4 py-2 " onclick="exportToExcel()">Export Excel</button>
+                                <button class="btn btn-white border border-dark px-4 py-2 " onclick="exportToCSV()">Export CSV</button>
+                                <button class="btn btn-white border border-dark px-4 py-2 " onclick="exportToPDF()">Export PDF</button>
+                                <button class="btn btn-white border border-dark px-4 py-2 " onclick="printTable()">Print</button>
                             </div>
                         </div>
                     </div>

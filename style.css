@@ -5,7 +5,7 @@
 
 body {
     overflow-x: hidden;
-    background-color: #fef6e4;
+    background-color: #ebddf4;
 }
 
 #wrapper {
@@ -76,7 +76,7 @@ body {
 
 #page-content-wrapper {
     flex-grow: 1;
-    background-color: #fef6e4;
+    bbackground-color: #ebddf4;
     min-width: 0;
 }
 
@@ -106,6 +106,7 @@ body {
 .btn-primary {
     background-color: var(--primary-purple);
     border-color: var(--primary-purple);
+    display: flex-end;
 }
 
 .btn-primary:hover {
@@ -127,7 +128,31 @@ body {
     background-color: #ca15bbab;
 }
 
-/* Center everything in line */
+.exportButton{
+    display: flex;
+    justify-content: center;
+    gap: 15px;            
+    margin: 20px auto;         
+    flex-wrap: wrap; 
+}
+
+.exportButton button {
+    width: 160px; 
+    height: 30px;
+    line-height: 10px;
+    text-align:center;
+    table-layout: auto;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+.exportButton button :hover{
+    background-color: #f3f3f3;
+    border-color: #6a0dad;
+    color: #6a0dad;
+}
+
+
 .dot-pagination {
   display: flex;
   align-items: center;
@@ -135,7 +160,7 @@ body {
   margin-top: 15px;
 }
 
-/* Dot styles */
+
 .dot-pagination .page-item .page-link {
   width: 15px;
   height: 15px;
@@ -150,7 +175,7 @@ body {
   background-color: #6a0dad;
 }
 
-/* Arrow buttons */
+
 .dot-pagination .page-item.prev-next .page-link {
   width: 30px;
   height: 30px;
@@ -218,6 +243,31 @@ body {
         font-size: 20px;
     }
 
+    .exportButton{
+        display: flex;
+        justify-content: center;
+        gap: 5px;            
+        margin: 20px auto;         
+        flex-wrap: wrap; 
+    }
+
+    .exportButton button {
+        width: 160px; 
+        height: 30px;
+        line-height: 10px;
+        text-align:center;
+        justify-content: center;
+        table-layout: auto;
+        align-items: center;
+        background-color: white;
+    }
+
+    .exportButton button :hover{
+        background-color: #f3f3f3;
+        border-color: #6a0dad;
+        color: #6a0dad;
+    }
+
 }
 
 /* Mobile View  */
@@ -281,4 +331,35 @@ body {
         padding: 10px;
     }
 
+    .btn-primary {
+
+        display: flex-end;
+        width: 60px;
+        font-size: 12px;
+    }
+
+    .exportButton{
+        display: flex;
+        justify-content: center;
+        gap: 5px;            
+        margin: 20px auto;         
+        flex-wrap: wrap; 
+    }
+
+     .exportButton button {
+        width: 160px; 
+        height: 30px;
+        line-height: 10px;
+        text-align:center;
+        justify-content: center;
+        table-layout: auto;
+        align-items: center;
+        background-color: white;
+  }
+
+    .exportButton button :hover{
+        background-color: #f3f3f3;
+        border-color: #6a0dad;
+        color: #6a0dad;
+    }
 }
